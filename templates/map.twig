@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--INCLUDE HEADER FROM EXTERNAL FILE-->
+	<?php include 'header.php'; ?>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+	integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+	crossorigin=""/>
+
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+	integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+	crossorigin=""></script>
+
+	<!--jQuery-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--Select2-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+</head>
+<body>
+
+	<h1>Property Map</h1>
+
+	<p>Enter your Postcode to view properties on a Google map and filter by Price, Property Type, or For Sale/Rent!</p>
+	<div class="row">
+		<div class="col-sm-6">
+			<form action="PropertyMap.php">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search property by postcode" name="search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<form>
+		<div class="well">
+			<!--<input type="number" name="bedrooms" value="bedrooms" step="1" min="0" placeholder="Bedrooms" />-->
+			<label for="price">Select maximum price</label>
+			<input type="number" name="price" value="price" step="100000" min="0" max="50000000 " placeholder="Select a price" />
+
+			<label for="property_type">Select property type</label>
+
+			<select class="js-property-multiple" name="property_type[]" multiple="multiple">
+				<!-- <select name="property_type[]" multiple> -->
+					<option value="Terraced">Terraced</option>
+					<option value="Villa">Villa</option>
+					<option value="End of terrace">End of terrace</option>
+					<option value="Semi-detached house">Semi-detached house</option>
+					<option value="Detached house">Detached house</option>
+					<option value="Mews house">Mews house</option>
+					<option value="Flat">Flat</option>
+					<option value="Maisonette">Maisonette</option>
+					<option value="Bungalow">Bungalow</option>
+					<option value="Town house">Town house</option>
+					<option value="Cottage">Cottage</option>
+					<option value="Farm/Barn">Farm/Barn</option>
+					<option value="Mobile/static">Mobile/static</option>
+					<option value="Land">Land</option>
+					<option value="Studio">Studio</option>
+					<option value="Block of flats">Block of flats</option>  
+					<option value="Office">Office</option>
+				</select>
+
+				<label for="sale_or_rent">Choose property status</label>
+				<input type="radio" name="sale_or_rent" value ="sale" checked> For Sale<br>
+				<input type="radio" name="sale_or_rent" value="rent"> For Rent<br>
+
+				<button type="submit">Gadoosh!</button>
+
+		</form>
+
+		<script src="form-select2.js"></script>
+		<!-- create the map container div -->
+		<div id="mapid" style ="width: 800px; height:600px; position: center;" class="leaflet-container"></div>
+		<!-- script to handle map stuff-->
+		<script src="make_map.js"></script>
+
+		<img src="https://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla-150x73.png" width="150" height="73" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0">
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+
+<!--INCLUDE HEADER FROM EXTERNAL FILE-->
+{% include 'header.twig' %}
+
+</head>
+<body>
+<h1>Properties Details</h1>
+
+<form method="post" action="/properties/update">
+<!--{{ property | json_encode }}-->
+{% for property in property %}
+    <p> Successfully twigged! </p>
+    <table border=1 style="width:60%; margin: 20px; text-align: left; border-spacing:5px; padding: 10px;" >
+            
+            <tr>
+                <th>Property ID (database)</th>
+                <td><input type="text" name="ID" value="{{property.ID}}" readonly></td>   
+
+            </tr>
+            
+            <tr>
+                <th>Zoopla ID</th>
+                <td><input type="text" name="ZooplaID" value="{{property.ZooplaID}}" readonly></td>
+            </tr>
+            
+            <tr>
+                <th>County</th>
+                <td><input type="text" name="County" value="{{property.County}}"></td>
+            </tr>
+            
+            <tr>
+                <th>Country</th>
+                <td><input type="text" name="Country" value="{{property.Country}}"></td>
+            </tr>
+            
+            <tr>
+                <th>Description</th>
+                <td><textarea style="width:100%; height:150px;">{{property.Description}}</textarea></td>
+
+            </tr>
+            
+            <tr>
+                <th>DisplayableAddress</th>     
+                <td><input type="text" name="DisplayableAddress" value="{{property.DisplayableAddress}}"></td>
+
+            </tr>
+            
+            <tr>
+                <th>Image</th>      
+                <td><input disabled type ="text" name="Image" value="{{property.Image}}"></td>
+            </tr>
+            
+            <tr>
+                <th>Image</th>      
+                <td><img src="{{property.Image}}"></td>
+            </tr>
+
+            <tr>
+                <th>NoOfBathrooms</th>      
+                <td><input type="text" name="NoOfBathrooms" value="{{property.NoOfBathrooms}}"></td>
+            </tr>
+            
+            <tr>
+                <th>NoOfBedrooms</th>       
+                <td><input type="text" name="NoOfBedrooms" value="{{property.NoOfBedrooms}}"></td>
+            </tr>
+            
+            <tr>
+                <th>Postcode</th>       
+                <td><input type="text" name="Postcode" value="{{property.Postcode}}"></td>
+            </tr>
+            
+            <tr>
+                <th>Price</th>
+                <td><input type="text" name="Price" value="{{property.Price}}"></td>
+            </tr>
+            
+            <tr>
+                <th>PropertyType</th>
+                <td><input type="text" name="PropertyType" value="{{property.PropertyType}}"</td>
+            </tr>
+            
+            <tr>
+                <th>SaleOrRent</th>
+                <td><input type="text" name="SaleOrRent" value="{{property.SaleOrRent}}"</td>
+            </tr>
+            
+            <tr>
+                <th>Town</th>
+                <td><input type="text" name="Town" value="{{property.Town}}"</td>
+            </tr>
+        
+            <tr>
+                <th>Actions </th>
+                <td>
+
+                    <input type="submit" class = "btn btn-success" name="submit" value="Update">
+                    
+                    <a href = "{{ path_for('property-delete', {id: property.ID }) }}" class = "btn btn-danger">Delete</a>
+
+                    
+
+                </td>
+            </tr>
+        </table>
+
+{% endfor %}
+</form>
+<!--{{ properties | json_encode}}-->
+
+</body>
+</html>
