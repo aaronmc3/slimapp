@@ -2,6 +2,11 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+//TEST controller
+$app->get('/test', 'Controllers\\TestController:index');
+
+$app->get('/hello/{name}', 'Controllers\\HelloController:index');
+
 // RETRIEVE LIST OF PROPERTIES
 // Render Twig template in route
 $app->get('/properties', function ($request, $response, $args) {
