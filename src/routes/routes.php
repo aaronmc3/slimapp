@@ -3,7 +3,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 //TEST controller
-$app->get('/test', 'Controllers\\TestController:index');
+$app->get('/test', 'TestController:index')->setName('test-controller');
 
 $app->get('/hello/{name}', 'Controllers\\HelloController:index');
 

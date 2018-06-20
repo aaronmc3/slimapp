@@ -7,8 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
 {
     public static $files = array (
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -23,11 +24,13 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Translation\\' => 30,
             'Slim\\Views\\' => 11,
             'Slim\\' => 5,
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
@@ -35,6 +38,10 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         'I' => 
         array (
             'Interop\\Container\\' => 18,
+            'Illuminate\\Support\\' => 19,
+            'Illuminate\\Database\\' => 20,
+            'Illuminate\\Contracts\\' => 21,
+            'Illuminate\\Container\\' => 21,
         ),
         'H' => 
         array (
@@ -43,6 +50,14 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         'F' => 
         array (
             'FastRoute\\' => 10,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Inflector\\' => 26,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
         ),
     );
 
@@ -59,6 +74,10 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/twig-view/src',
@@ -66,6 +85,10 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -83,6 +106,22 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
+        'Illuminate\\Support\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/support',
+        ),
+        'Illuminate\\Database\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/database',
+        ),
+        'Illuminate\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/contracts',
+        ),
+        'Illuminate\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/container',
+        ),
         'Helpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/helpers',
@@ -91,6 +130,18 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
+        ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -122,6 +173,7 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit06d82b4723add54bf6de7fafa9c40750::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit06d82b4723add54bf6de7fafa9c40750::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit06d82b4723add54bf6de7fafa9c40750::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit06d82b4723add54bf6de7fafa9c40750::$prefixesPsr0;
 
         }, null, ClassLoader::class);

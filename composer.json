@@ -2,7 +2,8 @@
     "require": {
         "slim/slim": "^3.0",
         "slim/twig-view": "^2.4",
-        "zeuxisoo/slim-whoops": "^0.6.3"
+        "zeuxisoo/slim-whoops": "^0.6.3",
+        "illuminate/database": "~5.1"
     },
     "autoload": {
     	"psr-4": {

@@ -5,8 +5,10 @@ namespace Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-use App\Property;
 
+use models\Property;
+use Slim\Views\Twig as View;
+use Slim\Container;
 /**
  * Class TestController
  *
@@ -23,7 +25,7 @@ class TestController
      *
      * @param \Slim\Container $container
      */
-    public function __construct(\Slim\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
@@ -38,12 +40,13 @@ class TestController
     public function index(Request $request, Response $response, $args)
     {
 
+        return 'Test Controller say: Hellooo there!';
 
-        $properties = App\Property::all();
+        // $properties = App\Property::all();
 
-        foreach ($flights as $flight) {
-            echo $flight->name;
-        }
+        // foreach ($properties as $property) {
+        //     echo $property->DisplayableAddress;
+        // }
 
 
         // return $this->container->get('view')->render(
