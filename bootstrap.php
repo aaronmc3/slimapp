@@ -1,6 +1,8 @@
 <?php
 
-
+use models\Property;
+use Slim\Views\Twig as View;
+use Slim\Container;
 
 $config = include_once 'config.php';
 $container = new \Slim\Container($config['slim']);
@@ -23,11 +25,21 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-$container['db'] = (new db)->connect();
+//$container['db'] = (new db)->connect();
 
-$container['query'] = new Helpers\QueryBuilder($container['db']);
+//$container['query'] = new Helpers\QueryBuilder($container['db']);
 
 //controller test - passing views
 $container['TestController'] = function($container) {
-    return new Controllers\TestController;
+    return new Controllers\TestController($container);
+};
+
+//eloquent stuff
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container['settings']['db']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+$container['db'] = function($container) use ($capsule) {
+    return $capsule;
 };

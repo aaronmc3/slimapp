@@ -5,54 +5,25 @@ namespace Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+use models\Property as Property;
+//use Slim\Views\Twig as View;
+//use Slim\Container as Container;
 
-use models\Property;
-use Slim\Views\Twig as View;
-use Slim\Container;
 /**
  * Class TestController
  *
  * @package Controllers
  */
-class TestController
+class TestController extends Controller
 {
-    /**
-     * @var \Slim\Container Stores the container for dependency purposes.
-     */
-    protected $container;
-    /**
-     * Store the container during class construction.
-     *
-     * @param \Slim\Container $container
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
-    /**
-     * Output a hello message to a specified name.
-     *
-     * @param  Request  $request
-     * @param  Response $response
-     * @param  Array    $args
-     * @return mixed
-     */
+   
     public function index(Request $request, Response $response, $args)
     {
 
-        return 'Test Controller say: Hellooo there!';
+        $property = Property::find(13);
+        var_dump($property);
 
-        // $properties = App\Property::all();
-
-        // foreach ($properties as $property) {
-        //     echo $property->DisplayableAddress;
-        // }
-
-
-        // return $this->container->get('view')->render(
-        //     $response, 'test.twig', [
-        //     'name' => $args['name']
-        //     ]
-        // );
+        die();
+        return $this->container->view->render($response, 'test.twig');
     }
 }
