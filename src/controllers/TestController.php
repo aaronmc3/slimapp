@@ -5,9 +5,11 @@ namespace Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-use models\Property as Property;
+//namespace Models
+use Models\Property;
+
 //use Slim\Views\Twig as View;
-//use Slim\Container as Container;
+use Slim\Container as Container;
 
 /**
  * Class TestController

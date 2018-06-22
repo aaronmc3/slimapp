@@ -1,7 +1,9 @@
 <?php
 
-use models\Property;
+use Models\Property;
 use Slim\Views\Twig as View;
+
+
 use Slim\Container;
 
 $config = include_once 'config.php';

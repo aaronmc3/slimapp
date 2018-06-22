@@ -35,6 +35,10 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'M' => 
+        array (
+            'Models\\' => 7,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -102,6 +106,10 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/models',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -136,7 +144,7 @@ class ComposerStaticInit06d82b4723add54bf6de7fafa9c40750
         ),
         'Controllers\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/controllers',
+            0 => __DIR__ . '/../..' . '/src/controllers',
         ),
     );
 
