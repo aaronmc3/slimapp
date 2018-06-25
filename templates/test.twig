@@ -1,1 +1,110 @@
-<h1>TWIGGED<h1>
+<!DOCTYPE html>
+
+{% include 'header.twig' %}
+
+<h1>List of Properties</h1>
+
+{% for property in properties %}
+    <p> Successfully twigged! </p>
+    <table border=1 style="width:60%; margin: 20px; text-align: left; border-spacing:5px; padding: 10px;" >
+            
+            <tr>
+                <th>Property ID (database)</th>
+                <td>{{property.ID}}</td>
+            </tr>
+            
+            <tr>
+                <th>Zoopla ID</th>
+                <td>{{property.ZooplaID}}</td>
+            </tr>
+            
+            <tr>
+                <th>County</th>
+                <td>{{property.County}}</td>
+            </tr>
+            
+            <tr>
+                <th>Country</th>
+                <td>{{property.Country}}</td>
+
+            </tr>
+            
+            <tr>
+                <th>Description</th>
+                <td><textarea disabled style="width:100%; height:150px;">{{property.Description}}</textarea></td>
+
+            </tr>
+            
+            <tr>
+                <th>DisplayableAddress</th>     
+                <td>{{property.DisplayableAddress}}</td>
+
+            </tr>
+            
+            <tr>
+                <th>Image</th>      
+                <td>{{property.Image}}</td>
+            </tr>
+            
+            <tr>
+                <th>Image</th>      
+                <td><img src="{{property.Image}}"></td>
+            </tr>
+
+            <tr>
+                <th>NoOfBathrooms</th>      
+                <td>{{property.NoOfBathrooms}}</td>
+            </tr>
+            
+            <tr>
+                <th>NoOfBedrooms</th>       
+                <td>{{property.NoOfBedrooms}}</td>
+            </tr>
+            
+            <tr>
+                <th>Postcode</th>       
+                <td>{{property.Postcode}}</td>
+            </tr>
+            
+            <tr>
+                <th>Price</th>
+                <td>{{property.Price}}</td>
+            </tr>
+            
+            <tr>
+                <th>PropertyType</th>
+                <td>{{property.PropertyType}}</td>
+            </tr>
+            
+            <tr>
+                <th>SaleOrRent</th>
+                <td>{{property.SaleOrRent}}</td>
+            </tr>
+            
+            <tr>
+                <th>Town</th>
+                <td>{{property.Town}}</td>
+            </tr>
+        
+            <tr>
+                <th>Actions </th>
+                <td>
+                    <a href = "{{ path_for('property-details', { id: property.ID }) }}" class="btn btn-success">View</a>
+                    
+                    <a href = "{{ path_for('property-delete', {id: property.ID }) }}" class = "btn btn-danger">Delete</a>
+
+                    <form class="form form-inline" method="POST" action="{{ path_for('property-delete', {id: property.ID }) }}">
+                        <button class="btn btn-danger">Delete!!!</button>
+                    </form>
+                    
+                </td>
+            </tr>
+        </table>
+
+{% endfor %}
+
+
+<!--{{ properties | json_encode}}-->
+
+</body>
+</html>

@@ -12,11 +12,11 @@ use Models\Property;
 use Slim\Container as Container;
 
 /**
- * Class TestController
+ * Class ViewAllController
  *
  * @package Controllers
  */
-class TestController extends Controller
+class ViewAllController extends Controller
 {
    
     public function index(Request $request, Response $response, $args)
@@ -27,7 +27,7 @@ class TestController extends Controller
 
         //die();
         return $this->container->view->render(
-        	$response, 'test.twig', [
+        	$response, 'properties.twig', [
         	'properties' => $properties
     	]);
 

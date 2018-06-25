@@ -3,7 +3,6 @@
 use Models\Property;
 use Slim\Views\Twig as View;
 
-
 use Slim\Container;
 
 $config = include_once 'config.php';
@@ -34,6 +33,10 @@ $container['view'] = function ($container) {
 //controller test - passing views
 $container['TestController'] = function($container) {
     return new Controllers\TestController($container);
+};
+
+$container['ViewAllController'] = function($container) {
+    return new Controllers\ViewAllController($container);
 };
 
 //eloquent stuff
